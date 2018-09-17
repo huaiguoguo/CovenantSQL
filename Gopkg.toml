@@ -52,6 +52,15 @@
   name = "github.com/xo/usql"
   branch = "master"
 
+[[override]]
+  name = "mvdan.cc/xurls"
+  branch = "master"
+  source = "https://github.com/mvdan/xurls"
+
+[[override]]
+  name = "github.com/satori/go.uuid"
+  branch = "master"
+
 [prune]
   go-tests = true
   unused-packages = true
