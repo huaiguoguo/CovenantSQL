@@ -41,6 +41,7 @@ import (
 	"github.com/CovenantSQL/CovenantSQL/route"
 	"github.com/CovenantSQL/CovenantSQL/rpc"
 	"github.com/CovenantSQL/CovenantSQL/sqlchain"
+	"github.com/CovenantSQL/CovenantSQL/utils"
 	"github.com/CovenantSQL/CovenantSQL/utils/log"
 	"github.com/CovenantSQL/CovenantSQL/worker"
 )
@@ -213,6 +214,13 @@ func runKeytool() {
 	}
 
 	log.Infof("pubkey hex is: %s", hex.EncodeToString(privateKey.PubKey().Serialize()))
+
+	var addr string
+	addr, _ = utils.PubKey2Addr(privateKey.PubKey(), utils.MainNet)
+	log.Infof("main net account address is: %s", addr)
+
+	addr, _ = utils.PubKey2Addr(privateKey.PubKey(), utils.TestNet)
+	log.Infof("test net account address is: %s", addr)
 }
 
 func runRPC() {
